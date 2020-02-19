@@ -1,0 +1,36 @@
+.tableHead th
+{
+    position: relative;   
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: transparent;
+}
+
+.tableHead th:hover
+{
+    transition: background-color 0.3s;
+    background-color: #c3c3c0;
+}
+
+.table
+{
+    margin: 0 !important;
+}
+
+
+.up,
+.down
+{
+    position: absolute;
+    top: 15px;
+    right: 5px;
+    width: 18px;
+    height: 18px;
+    background-image: URL('../img/up.png');
+    background-repeat: no-repeat;
+}
+
+.down
+{
+    background-image: URL('../img/down.png');
+}
