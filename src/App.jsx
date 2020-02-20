@@ -11,15 +11,13 @@ class App extends React.Component
       super();
       this.state =
       {
-        error: null,
-        isLoaded: false,
         data: [],
         sort: 'asc',
         sortBy: ''
       };
     }
 
-    
+
     componentDidMount() 
     {
       fetch('https://raw.githubusercontent.com/blmzv/ah-frontend-intern/master/profiles.json')
@@ -29,18 +27,13 @@ class App extends React.Component
           {
             this.setState(
             {
-              isLoaded: true,
               data: result
             });
             this.sortSave()
           },
           (error) => 
           {
-            this.setState(
-            {
-              isLoaded: true,
-              error
-            });
+            console.log(error)
           }
         )
     }
@@ -60,8 +53,9 @@ class App extends React.Component
     {  
       if(sessionStorage.getItem('sortSave') !== null)
       {
-        const sortField = JSON.parse(sessionStorage.sortSave)[0].sortBy
-        const sortType = JSON.parse(sessionStorage.sortSave)[1].sort
+        const sessionSave = JSON.parse(sessionStorage.sortSave);
+        const sortField = sessionSave[0].sortBy
+        const sortType = sessionSave[1].sort
 
         this.sortState(sortField, sortType);    
       }
