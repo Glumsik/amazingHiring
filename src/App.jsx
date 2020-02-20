@@ -11,7 +11,6 @@ class App extends React.Component
       super();
       this.state =
       {
-        data: [],
         sort: 'asc',
         sortBy: ''
       };
@@ -26,14 +25,14 @@ class App extends React.Component
           (result) => 
           {
             this.setState(
-            {
+      {
               data: result
             });
             this.sortSave()
           },
           (error) => 
           {
-            console.log(error)
+            console.error(error)
           }
         )
     }
@@ -46,7 +45,7 @@ class App extends React.Component
       this.sortState(sortField, sortType);    
 
       sessionStorage.setItem('sortSave', JSON.stringify([{sortBy : sortField},{sort : sortType}]))
-    }
+    };
 
 
     sortSave = () => 
@@ -54,12 +53,12 @@ class App extends React.Component
       if(sessionStorage.getItem('sortSave') !== null)
       {
         const sessionSave = JSON.parse(sessionStorage.sortSave);
-        const sortField = sessionSave[0].sortBy
-        const sortType = sessionSave[1].sort
+        const sortField = sessionSave[0].sortBy;
+        const sortType = sessionSave[1].sort;
 
         this.sortState(sortField, sortType);    
       }
-    }
+    };
 
 
     sortState = (sortField, sortType) =>
@@ -71,14 +70,14 @@ class App extends React.Component
         sort: sortType,
         sortBy: sortField
       })
-    }
+    };
 
 
     render()
     {
       return(
         <div className="outerContainer">
-              <Table dataTable={this.state.data} onSort={this.onSort} sortBy={this.state.sortBy} sort={this.state.sort}/>
+          {this.state.data !== undefined && <Table dataTable={this.state.data} onSort={this.onSort} sortBy={this.state.sortBy} sort={this.state.sort}/>}
        </div>
       )      
     }

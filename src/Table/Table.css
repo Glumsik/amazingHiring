@@ -12,12 +12,6 @@
     background-color: #c3c3c0;
 }
 
-.table
-{
-    margin: 0 !important;
-}
-
-
 .up,
 .down
 {
@@ -34,3 +28,5 @@
 {
     background-image: URL('../img/down.png');
 }
+
+
