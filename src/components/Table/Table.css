@@ -1,6 +1,6 @@
 .tableHead th
 {
-    position: relative;   
+    position: relative;
     cursor: pointer;
     transition: background-color 0.3s;
     background-color: transparent;
@@ -20,13 +20,13 @@
     right: 5px;
     width: 18px;
     height: 18px;
-    background-image: URL('../img/up.png');
+    background-image: URL('./img/sort-by-alphabet (1).png');
     background-repeat: no-repeat;
 }
 
 .down
 {
-    background-image: URL('../img/down.png');
+    background-image: URL('./img/sort-reverse-alphabetical-order.png');
 }
 
 
