@@ -48,7 +48,7 @@ class TableContainer extends React.Component {
 
 
     sortState = (sortField, sortType) => {
-        const orderedData = _.orderBy(this.props.dataTable, user => user[sortField].toLowerCase(), sortType);
+        const orderedData = _.orderBy(this.props.dataTable, user => user[sortField].toLowerCase().replace( /[.@() ]/g, "" ), sortType);
 
         this.props.setTable(orderedData);
         this.props.setSortBy(sortField);
