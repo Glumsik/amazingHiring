@@ -3,6 +3,7 @@ import  { connect } from 'react-redux';
 import Table from '../Table/Table'
 import {setSort, setTable, setSortBy, setLastSort} from "../../store/actions";
 import _ from 'lodash';
+import './Table.css';
 
 
 class TableContainer extends React.Component
@@ -69,9 +70,9 @@ class TableContainer extends React.Component
     render()
     {
         return (
-            <>
-                {this.props.dataTable.length > 0  && <Table dataTable={this.props.dataTable} onSort={(item) => this.onSort(item)}/>}
-            </>
+            <div className="innerContainer">
+                {this.props.dataTable.length > 0  && <Table dataTable={this.props.dataTable} sort={this.props.sort} sortBy={this.props.sortBy} onSort={(item) => this.onSort(item)}/>}
+            </div>
         )
     }
 }

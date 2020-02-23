@@ -1,0 +1,56 @@
+.tableHead th
+{
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: transparent;
+    user-select: none;
+}
+
+.tableHead th:hover
+{
+    transition: background-color 0.3s;
+    background-color: #cbd1d4d4;
+}
+
+.column-header
+{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.up,
+.down,
+.upPhone,
+.downPhone
+{
+    width: 18px;
+    height: 18px;
+    background-image: URL('../Table/img/sort-by-alphabet.png');
+    background-repeat: no-repeat;
+}
+
+.down
+{
+    background-image: URL('../Table/img/sort-reverse-alphabetical-order (1).png');
+}
+
+.upPhone
+{
+    background-image: URL('../Table/img/sort-by-numeric-order (1).png');
+}
+
+.downPhone
+{
+    background-image: URL('../Table/img/sort-by-order (1).png');
+}
+
+.innerContainer
+{
+    height: 100%;
+    width: 1200px;
+    box-sizing: border-box;
+    padding: 20px 20px 4px 20px;
+    background-color: #ffffff;
+}
+
+

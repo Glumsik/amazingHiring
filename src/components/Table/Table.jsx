@@ -1,5 +1,4 @@
 import React from "react";
-import './Table.css'
 
 
 export default props => {
@@ -11,7 +10,7 @@ export default props => {
                         Object.keys(props.dataTable[0]).map((item, index) =>
                             (
                                 <th key={index} onClick={() => props.onSort(item)}>
-                                    {item} {props.sortBy === item && <div className={props.sort === 'asc' ? 'up' : 'down'}/>}
+                                    <div className="column-header"><span>{item}</span>{props.sortBy === item && <div className={props.sort === 'asc' ? (item === 'Phone' ? 'upPhone' : 'up') : (item === 'Phone' ? 'downPhone' : 'down')}/>}</div>
                                 </th>
                             ))
                     }
