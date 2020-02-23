@@ -1,36 +1,30 @@
 import React from "react";
-import  { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import Table from '../Table/Table'
 import {setSort, setTable, setSortBy, setLastSort} from "../../store/actions";
 import _ from 'lodash';
 import './Table.css';
 
 
-class TableContainer extends React.Component
-{
-    componentDidMount()
-    {
+class TableContainer extends React.Component {
+    componentDidMount() {
         fetch('https://raw.githubusercontent.com/blmzv/ah-frontend-intern/master/profiles.json')
             .then(res => res.json())
             .then(
-                (result) =>
-                {
+                (result) => {
                     this.props.setTable(result);
                     this.sortSave()
                 },
-                (error) =>
-                {
+                (error) => {
                     console.error(error)
                 }
             )
     }
 
 
-    onSort = (sortField) =>
-    {
+    onSort = (sortField) => {
         let sortType = 'asc';
-        if(sortField === this.props.lastSort)
-        {
+        if (sortField === this.props.lastSort) {
             sortType = this.props.sort === 'asc' ? 'desc' : 'asc';
         }
 
@@ -38,14 +32,12 @@ class TableContainer extends React.Component
 
         this.sortState(sortField, sortType);
 
-        sessionStorage.setItem('sortSave', JSON.stringify([{sortBy : sortField},{sort : sortType}]))
+        sessionStorage.setItem('sortSave', JSON.stringify([{sortBy: sortField}, {sort: sortType}]))
     };
 
 
-    sortSave = () =>
-    {
-        if(sessionStorage.getItem('sortSave') !== null)
-        {
+    sortSave = () => {
+        if (sessionStorage.getItem('sortSave') !== null) {
             const sessionSave = JSON.parse(sessionStorage.sortSave);
             const sortField = sessionSave[0].sortBy;
             const sortType = sessionSave[1].sort;
@@ -55,11 +47,8 @@ class TableContainer extends React.Component
     };
 
 
-    sortState = (sortField, sortType) =>
-    {
-
+    sortState = (sortField, sortType) => {
         const orderedData = _.orderBy(this.props.dataTable, user => user[sortField].toLowerCase(), sortType);
-
 
         this.props.setTable(orderedData);
         this.props.setSortBy(sortField);
@@ -67,18 +56,18 @@ class TableContainer extends React.Component
     };
 
 
-    render()
-    {
+    render() {
         return (
             <div className="innerContainer">
-                {this.props.dataTable.length > 0  && <Table dataTable={this.props.dataTable} sort={this.props.sort} sortBy={this.props.sortBy} onSort={(item) => this.onSort(item)}/>}
+                {this.props.dataTable.length > 0 &&
+                <Table dataTable={this.props.dataTable} sort={this.props.sort} sortBy={this.props.sortBy}
+                       onSort={(item) => this.onSort(item)}/>}
             </div>
         )
     }
 }
 
-const mapStateToProps = (state) =>
-{
+const mapStateToProps = (state) => {
     return {
         dataTable: state.dataTable,
         sortBy: state.sortBy,
@@ -87,8 +76,7 @@ const mapStateToProps = (state) =>
     };
 };
 
-const mapDispatchToProps = (dispatch) =>
-{
+const mapDispatchToProps = (dispatch) => {
     return {
         setTable: (data) => dispatch(setTable(data)),
         setSortBy: (sortBy) => dispatch(setSortBy(sortBy)),

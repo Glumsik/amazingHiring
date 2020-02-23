@@ -1,51 +1,44 @@
-.tableHead th
-{
+.tableHead th {
     cursor: pointer;
     transition: background-color 0.3s;
     background-color: transparent;
     user-select: none;
 }
 
-.tableHead th:hover
-{
+.tableHead th:hover {
     transition: background-color 0.3s;
     background-color: #cbd1d4d4;
 }
 
-.column-header
-{
+.column-header {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
 }
 
 .up,
 .down,
 .upPhone,
-.downPhone
-{
+.downPhone {
     width: 18px;
     height: 18px;
     background-image: URL('../Table/img/sort-by-alphabet.png');
     background-repeat: no-repeat;
 }
 
-.down
-{
+.down {
     background-image: URL('../Table/img/sort-reverse-alphabetical-order (1).png');
 }
 
-.upPhone
-{
+.upPhone {
     background-image: URL('../Table/img/sort-by-numeric-order (1).png');
 }
 
-.downPhone
-{
+.downPhone {
     background-image: URL('../Table/img/sort-by-order (1).png');
 }
 
-.innerContainer
-{
+.innerContainer {
     height: 100%;
     width: 1200px;
     box-sizing: border-box;
